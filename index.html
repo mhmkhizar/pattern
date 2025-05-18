@@ -65,7 +65,7 @@
 <body>
     <div class="container">
         <h1>Password Generator</h1>
-        <input type="text" id="fileName" placeholder="Enter file name with Tomito+">
+        <input type="text" id="fileName" placeholder="Enter file name containing 'tomito'">
         <button onclick="generatePassword()">Generate Password</button>
         <div id="output">Your password will appear here</div>
     </div>
@@ -74,9 +74,10 @@
         function generatePassword() {
             const fileName = document.getElementById('fileName').value.trim();
             const outputDiv = document.getElementById('output');
-
-            if (!fileName.endsWith('Tomito+')) {
-                outputDiv.textContent = "Error: File name must end with 'Tomito+'.";
+            
+            // Check if the filename contains "tomito" in any case format
+            if (!fileName.toLowerCase().includes('tomito')) {
+                outputDiv.textContent = "Error: File name must contain 'tomito' (any case).";
                 return;
             }
 
